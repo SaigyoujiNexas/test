@@ -1,8 +1,8 @@
 #include <stdio.h>
-int main()
+int main(void)
 {
 	int a[10];
-	int b, i;
+	int b, i, c, d;
 	for (i = 0; i < 10; i++)
 	{
 		scanf("%d", &a[i]);
@@ -12,17 +12,20 @@ int main()
 	{
 		for (b = i - 1; b >= 0; b--)
 		{
-			if (a[b] < a[i])
+			if (a[b] > a[i] && a[b - 1] <= a[i])
 			{
-				a[b] = a[b] + a[i];
-				a[i] = a[b] - a[i];
-				a[b] = a[b] - a[i];
+				d = a[i];
+				for (c = i; c > b; c--)
+				{
+					a[c] = a[c - 1];
+				}
+				a[b] = d;
 			}
 		}
-			for (i = 0; i < 10; i++)
-			{
-				printf("%d ", a[i]);
-			}
-		return 0;
 	}
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d ", a[i]);
+	}
+	return 0;
 }
