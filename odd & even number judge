@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main(void)
+{
+	int sum_en = 0, sum_on = 0, nen = 0, non = 0;
+	int ch;
+	scanf("%d", &ch);
+	while (ch != 0)
+	{
+		getchar();
+		if (0 == ch % 2)
+		{
+			sum_en += ch;
+			nen++;
+		}
+		else
+		{
+			sum_on += ch;
+			non++;     // the number of odd number entered
+		}
+		scanf("%d", &ch);
+	}
+	printf("You entered %d even number and the average value is %.2f\n", nen, (float)sum_en / nen);
+	printf("You entered %d odd number and the average value is %.2f\n", non, (float)sum_on / non);
+	return 0;
+}
