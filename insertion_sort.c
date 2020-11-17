@@ -12,7 +12,7 @@ int main()
 	{
 		for (b = i - 1; b >= 0; b--)
 		{
-		if (a[b] > a[i] && a[b - 1] <= a[i]) 
+			if (a[b] > a[i] && a[b - 1] <= a[i]) 
 			{
 				d = a[i];
 				for (c = i; c > b; c--)
@@ -23,9 +23,9 @@ int main()
 			}
 		}
 	}
-			for (i = 0; i < 10; i++)
-			{
-				printf("%d ", a[i]);
-			}
-		return 0;
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d ", a[i]);
+	}
+	return 0;
 }
