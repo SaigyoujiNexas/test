@@ -1,9 +1,10 @@
 #include <stdio.h>
-
+#include <stdbool.h>
 int main(void)
 {
 	int a[10];
-	int b, c, d, e, i;
+	int i, j;
+	bool ct;
 	for(i = 0; i < 10; i++)
 	{
 		scanf("%d", &a[i]);
@@ -11,15 +12,19 @@ int main(void)
 	}
 	for (i = 0; i < 10; i++)
 	{
-		for(b = 0; b < 10; b++)
+		ct = false;
+		for(j = 0; j < 9; j++)
 		{
-		if (a[i] < a[b])
+			if (a[j] > a[j + 1])
 			{
-				a[i] = a[i] + a[b];
-				a[b] = a[i] - a[b];
-				a[i] = a[i] - a[b];
+				a[j] += a[j + 1];
+				a[j + 1] = a[j] - a[j + 1];
+				a[j] -= a[j - 1];
+				ct = true;
 			}
 		}
+		if (!ct)
+			break;
 	}
 	for(i = 0; i < 10; i++)
 	{
