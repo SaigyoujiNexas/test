@@ -3,9 +3,9 @@ a = n
 b = 0
 for i in range(n):
         for x in range(b):
-                print(" ")
+                print(" ",end="")
         for y in range(a):
-                print("*")
-        print("\n")
+                print("*", end = "")
+        print("")
         a -= 1
         b += 1
