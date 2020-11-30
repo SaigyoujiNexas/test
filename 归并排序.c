@@ -15,7 +15,7 @@ int main(void)
 		a[i]= a[i+1];
 		a[i+1]= k;
 	}
-	for (i = 0, i < 8; i+=4)
+	for (i = 0; i < 8; i+=4)
 	{
 		b = 3;
 			if(a[i] > a[b])
