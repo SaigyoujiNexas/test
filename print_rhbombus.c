@@ -1,44 +1,39 @@
-#include<stdio.h>
-int main(void)
+/* print_rhbombus.c */
+#include <stdio.h>
+#include <string.h>
+#define SPACE ' '
+#define CH '*'
+void print_n_char(char ch, int num);
+
+int main(void) 
 {
-	int a, b, c, d, e, i;
-	scanf("%d", &a);
+	int length;
+	scanf("%d", &length);
 	getchar();
-	b = (2 * a - 1) / 2;
-	d = 1;
-	for (i = 0; i < a; i++)
+	int spaces = length - 1;
+	for (int i = 1; i <= length; i++)
 	{
-		for (c = 0; c < b; c++)
-		{
-			printf(" ");
-		}
-		b--;
-		for (e = 0; e < d; e++)
-		{
-			printf("#");
-		}
-		d += 2;
+		print_n_char(SPACE, spaces);
+		print_n_char(CH, 2 * i -1);
+		spaces--;
 		putchar('\n');
 	}
-	d = d - 4;
-	b = b + 2;
-	for (i = 0; i < a - 1; i++)
+	length--;
+	spaces = 1;
+	for (length; length > 0; length--)
 	{
-		for (c = 0; c < b; c++)
-		{
-			printf(" ");
-		}
-		b++;
+		print_n_char(SPACE, spaces);
+		print_n_char(CH, 2 * length - 1);
+		spaces++;
+		putchar('\n');
+	}
 
-		for (e = 0; e < d; e++)
-		{
-			printf("#");
-		}
-		d -= 2;
-		putchar('\n');
-	}
 	return 0;
+}
 
-
+void print_n_char(char ch, int num)
+{
+	for (int i = 0; i < num; i++)
+		putchar(ch);
 }
 
