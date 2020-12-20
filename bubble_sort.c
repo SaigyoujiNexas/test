@@ -19,7 +19,7 @@ int main(void)
 			{
 				a[j] += a[j + 1];
 				a[j + 1] = a[j] - a[j + 1];
-				a[j] -= a[j - 1];
+				a[j] -= a[j + 1];
 				ct = true;
 			}
 		}
@@ -30,6 +30,7 @@ int main(void)
 	{
 		printf("%d ", a[i]);
 	}
+	getchar();
 	return 0;
 }
 
