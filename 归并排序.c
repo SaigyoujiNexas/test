@@ -1,35 +1,43 @@
-#include<stdio.h>
+#include <stdio.h>
+double power(double n, int p);
 int main(void)
 {
-	int a[8];
-	int b, c, d, e, i, k;
-	for (i = 0; i < 8; i++)
+	double x, xpow;
+	int exp;
+	printf("Enter a number and the positive integer power");
+	printf("to which\nthe number will be raisd. Enter q to quit.\n");
+	while (scanf("%lf%d", &x, &exp) == 2)
 	{
-		scanf("%d", &a[i]);
+		xpow = power(x, exp);
+		printf("%.3g to the powwer %d is %.5g\n", x, exp, xpow);
+		printf("Enter next pair of numbers or q to quit.\n");
 	}
-	for(i = 0; i < 8; i += 2)
+	printf("Hope you enjoyed this power trip -- bye!\n");
+	return 0;
+}
+
+double power(double n, int p)
+{
+	double pow = 1;
+	int i;
+	if (n == 0)
 	{
-	if(a[i] > a[i+1] )
-	{
-		k=a[i];
-		a[i]= a[i+1];
-		a[i+1]= k;
+		return 0;
 	}
-	for (i = 0; i < 8; i+=4)
+	else
 	{
-		b = 3;
-			if(a[i] > a[b])
+		if (p == 0)
+			return n;
+		else
+		{
+			if (p < 0)
 			{
-				a[i] = a[i] + a[b - 1];
-				a[b - 1] = a[i] - a[b - 1];
-				a[i] = a[i] - a[b - 1];
-				a[i + 1] = a[i + 1] + a[b];
-				a[b] = a[i + 1] - a[b];
-				a[i + 1] = a[i + 1] - a[b];
-				continue;
+				n = 1 / n;
+				p = -1 * p;
 			}
-			else if
-				
-			
+			for (i = 1; i <= p; i++)
+				pow *= n;
+			return pow;
 		}
-		for(b;b)
+	}
+}
