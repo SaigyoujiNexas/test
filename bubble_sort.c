@@ -1,37 +1,25 @@
-#include <stdio.h>
-#include <stdbool.h>
-int main(void)
+int bsort(int* num, int n)
 {
-	int a[10];
-	int i, j;
-	bool ct;
-	for(i = 0; i < 10; i++)
+	bool ju;
+	int i, j, k = 0;
+	for (i = 0; i < n; i++)
 	{
-		scanf("%d", &a[i]);
-		getchar();
-	}
-	for (i = 0; i < 10; i++)
-	{
-		ct = false;
-		for(j = 0; j < 9; j++)
+		ju = 1;
+		for (j = 0; j < n - 1; j++)
 		{
-			if (a[j] > a[j + 1])
+			if (*(num + j) > *(num + j + 1))
 			{
-				a[j] += a[j + 1];
-				a[j + 1] = a[j] - a[j + 1];
-				a[j] -= a[j + 1];
-				ct = true;
+				*(num + j) += *(num + j + 1);
+				*(num + j + 1) = *(num + j) - *(num + j + 1);
+				*(num + j) = *(num + j) - *(num + j + 1);
+				k++;
+				ju = 0;
 			}
 		}
-		if (!ct)
+		if (ju)
 			break;
 	}
-	for(i = 0; i < 10; i++)
-	{
-		printf("%d ", a[i]);
-	}
-	getchar();
-	return 0;
+	return k;  //返回排序次数
 }
 
 
