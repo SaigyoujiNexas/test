@@ -1,31 +1,11 @@
-#include <stdio.h>
-int main()
+int InsertionSort(int * array, int n)
 {
-	int a[10];
-	int b, i, c, d;
-	for (i = 0; i < 10; i++)
+	int i, j, key;
+	for (i = 1; i < n; i++)
 	{
-		scanf("%d", &a[i]);
-		getchar();
+		key = array[i];
+		for(j = i - 1; j >= 0 && array[j] < key; j--)
+			array[j + 1] = array[j];
+		array[j + 1] = key;
 	}
-	for (i = 1; i < 10; i++)
-	{
-		for (b = i - 1; b >= 0; b--)
-		{
-			if (a[b] > a[i] && a[b - 1] <= a[i]) 
-			{
-				d = a[i];
-				for (c = i; c > b; c--)
-				{
-					a[c] = a[c - 1];
-				}
-				a[b] = d;break;
-			}
-		}
-	}
-	for (i = 0; i < 10; i++)
-	{
-		printf("%d ", a[i]);
-	}
-	return 0;
 }
